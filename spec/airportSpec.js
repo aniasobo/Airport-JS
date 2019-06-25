@@ -6,11 +6,15 @@ describe('Airport', function() {
   })
 
   it('create an instance of airport', function() {
-    var airport = new Airport()
     expect(airport).toEqual(jasmine.anything());
   })
 
   it('makes an airplane landing', function() {
     expect(airport.land(plane)).toEqual([plane])
+  })
+
+  it('tells plane to fly and checks it left airport', function() {
+    airport.land(plane)
+    expect(airport.takeoff(plane)).toEqual([])
   })
 })
