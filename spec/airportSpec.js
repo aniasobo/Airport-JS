@@ -1,9 +1,11 @@
 describe('Airport', function() {
+  let plane;
+  let airport;
 
   beforeEach(function() {
-    airport = new Airport()
-    plane = new Plane()
-  })
+    airport = new Airport();
+    plane = new Plane();
+  });
 
   it('create an instance of airport', function() {
     expect(airport).toEqual(jasmine.anything());
