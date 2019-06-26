@@ -19,4 +19,9 @@ describe('Airport', function() {
     airport.land(plane)
     expect(airport.takeoff(plane)).toEqual([])
   })
+
+  it('responds to method that returns current planes', function() {
+    airport.land(plane)
+    expect(airport.planes()).toEqual([plane])
+  })
 })
