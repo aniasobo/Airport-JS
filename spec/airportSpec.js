@@ -4,24 +4,16 @@ describe('Airport', function() {
 
   beforeEach(function() {
     airport = new Airport();
-    plane = new Plane();
+    plane = jasmine.createSpy('plane', ['landAt']);
   });
 
-  it('create an instance of airport', function() {
-    expect(airport).toEqual(jasmine.anything());
-  })
-
-  it('makes an airplane landing', function() {
-    expect(airport.land(plane)).toEqual([plane])
+  it('tells a plane to land', function() {
+    expect(airport.clearToLand(plane)).toEqual([plane])
   })
 
   it('tells plane to fly and checks it left airport', function() {
-    airport.land(plane)
-    expect(airport.takeoff(plane)).toEqual([])
+    airport.clearToLand(plane)
+    expect(airport.clearToTakeoff(plane)).toEqual([])
   })
 
-  it('responds to method that returns current planes', function() {
-    airport.land(plane)
-    expect(airport.planes()).toEqual([plane])
-  })
 })
